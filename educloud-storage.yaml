@@ -1,12 +1,10 @@
-
 AWSTemplateFormatVersion: '2010-09-09'
-Description: EduCloud Infrastructure as Code - Secure S3 Storage
-
+Description: Private EduCloud S3 bucket for infrastructure objects and student PDF submissions
 Resources:
   EduCloudStorageBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Sub 'educloud-iac-${AWS::AccountId}-${AWS::Region}'
+      BucketName: educloud-iac-945528532356-ap-southeast-2
       VersioningConfiguration:
         Status: Enabled
       PublicAccessBlockConfiguration:
@@ -18,8 +16,6 @@ Resources:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
               SSEAlgorithm: AES256
-
 Outputs:
   BucketName:
-    Description: EduCloud storage bucket name
     Value: !Ref EduCloudStorageBucket

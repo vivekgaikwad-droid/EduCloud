@@ -1,5 +1,6 @@
-venv/
-__pycache__/
+venv
+.git
+__pycache__
 *.pyc
-.git/
-.vscode/
+.env
+local_uploads
