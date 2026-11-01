@@ -148,6 +148,14 @@ def register():
         invite = request.form.get("teacher_code", "").strip()
         expected_invite = os.environ.get("TEACHER_INVITE_CODE", "").strip()
 
+        app.logger.warning(
+    "TEACHER CHECK: role=%r field_present=%s expected_present=%s match=%s",
+    role,
+    bool(invite),
+    bool(expected_invite),
+    invite == expected_invite
+)
+
         if not name or not email or len(password) < 8:
             flash("Enter your name and email, and use a password with at least 8 characters.", "error")
 
